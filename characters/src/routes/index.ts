@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get("/", controllers.getCharacters);
 
+router.post("/", controllers.createCharacter);
+
 export default router;
