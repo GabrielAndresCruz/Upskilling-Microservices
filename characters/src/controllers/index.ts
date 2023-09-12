@@ -1,5 +1,7 @@
+import { getCharacters } from "./getCharacters";
+
 const controllers = {
-  getCharacters: require("./getCharacters"),
+  getCharacters,
 };
 
 export default controllers;
