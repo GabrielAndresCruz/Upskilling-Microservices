@@ -1,11 +1,12 @@
 import express from "express";
 import controllers from "../controllers";
 import catchedAsync from "../utils/catchedAsync";
+import middlewares from "../middlewares";
 
 const router = express.Router();
 
-router.get("/", catchedAsync(controllers.getCharacters));
+router.get("/", controllers.getCharacters);
 
-router.post("/", catchedAsync(controllers.createCharacter));
+router.post("/", middlewares.characterValidation, controllers.createCharacter);
 
 export default router;
