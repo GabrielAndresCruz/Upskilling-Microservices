@@ -3,8 +3,6 @@ import { listCharacters } from "../data";
 import { sendResponse } from "../utils/response";
 
 export async function getCharacters(req: Request, res: Response) {
-  throw new Error("error");
-
   const characters: any[] = await listCharacters(); // When use database, change the :any[] for :`Model_Name`[]
 
   sendResponse<any[]>(res, 200, characters, "Characters Data");
