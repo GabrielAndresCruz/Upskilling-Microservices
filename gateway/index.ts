@@ -14,7 +14,7 @@ const app: Express = express();
 app.use(morgan("dev"));
 
 app.use(
-  "/api",
+  "/characters",
   createProxyMiddleware({
     target: "http://localhost:8001",
     changeOrigin: true,
