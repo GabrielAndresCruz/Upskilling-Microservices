@@ -1,8 +1,8 @@
-import catchedAsync from "../../utils/catchedAsync";
-import { characterValidation } from "./characterValidation";
+import catchedAsync from "../utils/catchedAsync";
+import { filmValidation } from "./filmValidation";
 
-const characterValidator = {
-  characterValidation: catchedAsync(characterValidation),
+const filmValidator = {
+  filmValidation: catchedAsync(filmValidation),
 };
 
-export default characterValidator;
+export default filmValidator;

@@ -1,7 +1,7 @@
 import server from "./src/server";
 
-const PORT = 8001;
+const PORT = 8002;
 
 server.listen(PORT, () => {
-  console.log(`Characters service listening on port ${PORT}`);
+  console.log(`Films service listening on port ${PORT}`);
 });

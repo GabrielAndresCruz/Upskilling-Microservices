@@ -1,5 +1,5 @@
-import characters from "./characters.json";
+import films from "./films.json";
 
-export async function listCharacters() {
-  return characters;
+export async function listFilms() {
+  return films;
 }
