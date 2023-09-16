@@ -1,6 +1,6 @@
 import server from "./src/server";
 
-const PORT = 8001;
+const PORT = 8003;
 
 server.listen(PORT, () => {
   console.log(`Planets service listening on port ${PORT}`);
