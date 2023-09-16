@@ -1,6 +1,6 @@
 import { wrongRoute } from "./wrongRoute";
-import { getFilms } from "./getCharacters";
-import { createFilm } from "./createCharacters";
+import { getFilms } from "./getFilms";
+import { createFilm } from "./createFilms";
 import catchedAsync from "../utils/catchedAsync";
 
 const controllers = {
