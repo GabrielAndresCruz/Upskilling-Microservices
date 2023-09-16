@@ -1,8 +1,8 @@
 import catchedAsync from "../utils/catchedAsync";
-import { characterValidation } from "./characterValidation";
+import { planetValidation } from "./planetValidation";
 
-const characterValidator = {
-  characterValidation: catchedAsync(characterValidation),
+const planetValidator = {
+  planetValidation: catchedAsync(planetValidation),
 };
 
-export default characterValidator;
+export default planetValidator;

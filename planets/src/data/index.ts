@@ -1,5 +1,5 @@
-import characters from "./characters.json";
+import planets from "./planets.json";
 
-export async function listCharacters() {
-  return characters;
+export async function listPlanets() {
+  return planets;
 }

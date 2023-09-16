@@ -1,12 +1,12 @@
 import { wrongRoute } from "./wrongRoute";
-import { getCharacters } from "./getCharacters";
-import { createCharacter } from "./createCharacters";
+import { getPlanets } from "./getPlanets";
+import { createPlanets } from "./createPlanets";
 import catchedAsync from "../utils/catchedAsync";
 
 const controllers = {
   wrongRoute: catchedAsync(wrongRoute),
-  getCharacters: catchedAsync(getCharacters),
-  createCharacter: catchedAsync(createCharacter),
+  getPlanets: catchedAsync(getPlanets),
+  createPlanets: catchedAsync(createPlanets),
 };
 
 export default controllers;
