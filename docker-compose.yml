@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  gateway:
+    build: 
+      context: ./gateway
+    container_name: gateway
+    ports: 
+      - '8000:8000'
+    networks:
+      - starwars
+  characters:
+    build: 
+      context: ./characters
+    container_name: characters
+    ports: 
+      - '8001:8001'
+    networks:
+      - starwars
+  planets:
+    build: 
+      context: ./planets
+    container_name: planets
+    ports: 
+      - '8002:8002'
+    networks:
+      - starwars
+  films:
+    build: 
+      context: ./films
+    container_name: films
+    ports: 
+      - '8003:8003'
+    networks:
+      - starwars
+networks:
+  starwars:
+    driver: bridge
