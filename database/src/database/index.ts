@@ -1,9 +1,13 @@
 import mongoose from "mongoose";
-import { Character, charactersSchema } from "./schemas/characterSchema";
+import {
+  Character,
+  CharactersStatics,
+  charactersSchema,
+} from "./schemas/characterSchema";
 import { Planet, planetSchema } from "./schemas/planetSchema";
 import { Film, filmSchema } from "./schemas/filmSchema";
 
-export const CharacterModel = mongoose.model<Character>(
+export const CharacterModel = mongoose.model<Character, CharactersStatics>(
   "Character",
   charactersSchema
 );

@@ -18,14 +18,5 @@ mongoose
     console.error("Error connecting to MongoDB", console.error(err));
   });
 
-CharacterModel.find()
-  .populate("homeworld")
-  .populate("films")
-  .then((res) => console.log(res[0]));
-
-// PlanetModel.find()
-//   // .populate("homeworld")
-//   // .populate("films")
-//   .then((res) => console.log(res[0]));
-
-// FilmModel.find().then((res) => console.log(res[0]));
+// CharacterModel.list().then((res) => console.log(res[0]));
+// CharacterModel.get(6).then((res) => console.log(res));
