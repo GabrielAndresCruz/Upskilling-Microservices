@@ -1,7 +1,7 @@
 import app from "./src/server";
 import mongoose from "mongoose";
 import config from "./config/config";
-import CharacterModel from "./src/database/schemas/characterSchema";
+import { CharacterModel } from "./src/database";
 
 const PORT = config.server.port;
 
@@ -14,8 +14,18 @@ mongoose
       console.log(`Server running on port: ${PORT}`);
     });
   })
-  .catch(() => {
-    console.error("Error connecting to MongoDB");
+  .catch((err) => {
+    console.error("Error connecting to MongoDB", console.error(err));
   });
 
-CharacterModel.find().then((res) => console.log(res[0]));
+CharacterModel.find()
+  .populate("homeworld")
+  // .populate("films")
+  .then((res) => console.log(res[0]));
+
+// PlanetModel.find()
+//   // .populate("homeworld")
+//   // .populate("films")
+//   .then((res) => console.log(res[0]));
+
+// FilmModel.find().then((res) => console.log(res[0]));

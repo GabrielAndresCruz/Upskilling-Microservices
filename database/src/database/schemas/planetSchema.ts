@@ -1,6 +1,6 @@
 import mongoose, { InferSchemaType, Schema, Types, model } from "mongoose";
 
-export const charactersSchema: Schema = new Schema({
+export const planetSchema: Schema = new Schema({
   _id: {
     type: Types.ObjectId,
     required: true,
@@ -9,40 +9,40 @@ export const charactersSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  height: {
+  rotation_period: {
     type: String,
     required: true,
   },
-  mass: {
+  orbital_period: {
     type: String,
     required: true,
   },
-  hair_color: {
+  diameter: {
     type: String,
     required: true,
   },
-  skin_color: {
+  climate: {
     type: String,
     required: true,
   },
-  eye_color: {
+  gravity: {
     type: String,
     required: true,
   },
-  birth_year: {
+  terrain: {
     type: String,
     required: true,
   },
-  gender: {
-    type: String,
-    enum: ["male", "female", "hermaphrodite", "none", "n/a"],
-    required: true,
-  },
-  homeworld: {
+  surface_water: {
     type: String,
     required: true,
-    ref: "Planet",
   },
+  residents: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
   films: [
     {
       type: String,
@@ -52,4 +52,4 @@ export const charactersSchema: Schema = new Schema({
   ],
 });
 
-export type Character = InferSchemaType<typeof charactersSchema>;
+export type Planet = InferSchemaType<typeof planetSchema>;
