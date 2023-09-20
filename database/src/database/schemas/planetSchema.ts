@@ -2,7 +2,7 @@ import mongoose, { InferSchemaType, Schema, Types, model } from "mongoose";
 
 export const planetSchema: Schema = new Schema({
   _id: {
-    type: Types.ObjectId,
+    type: String,
     required: true,
   },
   name: {

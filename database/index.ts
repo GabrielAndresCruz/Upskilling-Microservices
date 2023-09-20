@@ -20,7 +20,7 @@ mongoose
 
 CharacterModel.find()
   .populate("homeworld")
-  // .populate("films")
+  .populate("films")
   .then((res) => console.log(res[0]));
 
 // PlanetModel.find()
