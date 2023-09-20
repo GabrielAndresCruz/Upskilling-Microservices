@@ -7,7 +7,6 @@ const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
 const MONGO_DATABASE = process.env.MONGO_DATABASE;
 
 const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@atlasmicroservice.ylcihtu.mongodb.net/${MONGO_DATABASE}`;
-console.log(MONGO_URL);
 
 const SERVER_PORT = process.env.SERVER_PORT
   ? Number(process.env.SERVER_PORT)
