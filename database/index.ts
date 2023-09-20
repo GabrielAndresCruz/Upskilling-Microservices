@@ -1,7 +1,18 @@
 import app from "./src/server";
+import mongoose from "mongoose";
+import config from "./config/config";
 
-const PORT = 8004;
+const PORT = config.server.port;
 
-app.listen(PORT, () => {
-  console.log(`Database listening on port ${PORT}`);
-});
+/** Connect to Mongo */
+mongoose
+  .connect(config.mongo.url)
+  .then(() => {
+    console.log("Database connected");
+    app.listen(PORT, () => {
+      console.log(`Server running on port: ${PORT}`);
+    });
+  })
+  .catch(() => {
+    console.error("Error connecting to MongoDB");
+  });

@@ -52,6 +52,6 @@ const charactersSchema = new Schema({
   ],
 });
 
-type Character = InferSchemaType<typeof charactersSchema>;
+export type Character = InferSchemaType<typeof charactersSchema>;
 
 export default model<Character>("Character", charactersSchema);
