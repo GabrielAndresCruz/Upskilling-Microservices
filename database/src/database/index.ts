@@ -5,7 +5,7 @@ import {
   charactersSchema,
 } from "./schemas/characterSchema";
 import { Planet, planetSchema } from "./schemas/planetSchema";
-import { Film, filmSchema } from "./schemas/filmSchema";
+import { Film, FilmsStatics, filmSchema } from "./schemas/filmSchema";
 
 export const CharacterModel = mongoose.model<Character, CharactersStatics>(
   "Character",
@@ -14,4 +14,4 @@ export const CharacterModel = mongoose.model<Character, CharactersStatics>(
 
 export const PlanetModel = mongoose.model<Planet>("Planet", planetSchema);
 
-export const FilmModel = mongoose.model<Film>("Film", filmSchema);
+export const FilmModel = mongoose.model<Film, FilmsStatics>("Film", filmSchema);

@@ -1,7 +1,7 @@
 import app from "./src/server";
 import mongoose from "mongoose";
 import config from "./config/config";
-import { CharacterModel } from "./src/database";
+import { CharacterModel, FilmModel, PlanetModel } from "./src/database";
 
 const PORT = config.server.port;
 
@@ -20,3 +20,9 @@ mongoose
 
 // CharacterModel.list().then((res) => console.log(res[0]));
 // CharacterModel.get(6).then((res) => console.log(res));
+
+// PlanetModel.list().then((res) => console.log(res[0]));
+// PlanetModel.get().then((res) => console.log(res));
+
+FilmModel.list().then((res) => console.log(res[0]));
+// FilmModel.get().then((res) => console.log(res));
