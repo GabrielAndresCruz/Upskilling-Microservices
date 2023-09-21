@@ -57,7 +57,7 @@ filmSchema.statics = {
     const characterId = id.toString();
     return await this.findById(characterId)
       .populate("characters", ["_id", "name"])
-      .populate("planets", ["_id", "title"]);
+      .populate("planets", ["_id", "name"]);
   },
   async create(film: Film): Promise<Film> {
     return await this.create(film);

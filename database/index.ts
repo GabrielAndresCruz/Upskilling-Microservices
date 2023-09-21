@@ -21,8 +21,8 @@ mongoose
 // CharacterModel.list().then((res) => console.log(res[0]));
 // CharacterModel.get(6).then((res) => console.log(res));
 
-// PlanetModel.list().then((res) => console.log(res[0]));
+PlanetModel.list().then((res) => console.log(res[0]));
 // PlanetModel.get().then((res) => console.log(res));
 
-FilmModel.list().then((res) => console.log(res[0]));
-// FilmModel.get().then((res) => console.log(res));
+// FilmModel.list().then((res) => console.log(res[0]));
+// FilmModel.get(2).then((res) => console.log(res));

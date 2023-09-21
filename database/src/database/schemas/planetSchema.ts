@@ -1,4 +1,10 @@
-import mongoose, { InferSchemaType, Schema, Types, model } from "mongoose";
+import mongoose, {
+  InferSchemaType,
+  Model,
+  Schema,
+  Types,
+  model,
+} from "mongoose";
 
 export const planetSchema: Schema = new Schema({
   _id: {
@@ -52,4 +58,24 @@ export const planetSchema: Schema = new Schema({
   ],
 });
 
+planetSchema.statics = {
+  async list(): Promise<Planet[]> {
+    return await this.find().populate("films", ["_id", "title"]);
+  },
+  async get(id: Number): Promise<Planet | null> {
+    const characterId = id.toString();
+    return await this.findById(characterId).populate("films", ["_id", "title"]);
+  },
+  async create(planet: Planet): Promise<Planet> {
+    return await this.create(planet);
+  },
+};
+
 export type Planet = InferSchemaType<typeof planetSchema>;
+
+export interface PlanetStatics extends Model<Planet> {
+  // Problem with the :Promise<> of the functions
+  list(): any;
+  get(id: Number): any;
+  create(planet: Planet): any;
+}
