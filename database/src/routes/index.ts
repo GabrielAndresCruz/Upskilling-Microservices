@@ -15,4 +15,16 @@ router.get("/:model", async (req: Request, res: Response) => {
   }
 });
 
+router.get("/:model/:id", async (req: Request, res: Response) => {
+  try {
+    const { model, id } = req.params;
+    const modelName = model.charAt(0).toUpperCase() + model.slice(1);
+    const response = await models[modelName].get(id);
+    res.status(200).send(response);
+  } catch (error) {
+    res.status(500).send(error);
+    console.log(error);
+  }
+});
+
 export default router;
