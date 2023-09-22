@@ -1,20 +1,31 @@
 import mongoose from "mongoose";
 import {
-  Character,
+  ICharacter,
   CharactersStatics,
   charactersSchema,
 } from "./schemas/characterSchema";
-import { Planet, PlanetStatics, planetSchema } from "./schemas/planetSchema";
-import { Film, FilmsStatics, filmSchema } from "./schemas/filmSchema";
+import { IPlanet, PlanetStatics, planetSchema } from "./schemas/planetSchema";
+import { IFilm, FilmsStatics, filmSchema } from "./schemas/filmSchema";
 
-export const CharacterModel = mongoose.model<Character, CharactersStatics>(
-  "Character",
-  charactersSchema
-);
+// const Character = mongoose.model<ICharacter, CharactersStatics>(
+//   "Character",
+//   charactersSchema
+// );
 
-export const PlanetModel = mongoose.model<Planet, PlanetStatics>(
-  "Planet",
-  planetSchema
-);
+// const PlanetModel = mongoose.model<Planet, PlanetStatics>(
+//   "Planet",
+//   planetSchema
+// );
 
-export const FilmModel = mongoose.model<Film, FilmsStatics>("Film", filmSchema);
+// const FilmModel = mongoose.model<Film, FilmsStatics>("Film", filmSchema);
+
+const models = {
+  Character: mongoose.model<ICharacter, CharactersStatics>(
+    "Character",
+    charactersSchema
+  ),
+  Planet: mongoose.model<IPlanet, PlanetStatics>("Planet", planetSchema),
+  Film: mongoose.model<IFilm, FilmsStatics>("Film", filmSchema),
+};
+
+export default models;

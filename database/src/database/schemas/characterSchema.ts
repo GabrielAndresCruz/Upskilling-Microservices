@@ -52,34 +52,34 @@ export const charactersSchema: Schema = new Schema({
   films: [
     {
       type: String,
-      required: true,
+      required: false,
       ref: "Film",
     },
   ],
 });
 
 charactersSchema.statics = {
-  async list(): Promise<Character[]> {
+  async list(): Promise<ICharacter[]> {
     return await this.find()
       .populate("homeworld", ["_id", "name"])
       .populate("films", ["_id", "title"]);
   },
-  async get(id: Number): Promise<Character | null> {
+  async get(id: Number): Promise<ICharacter | null> {
     const characterId = id.toString();
     return await this.findById(characterId)
       .populate("homeworld", ["_id", "name"])
       .populate("films", ["_id", "title"]);
   },
-  async create(character: Character): Promise<Character> {
+  async create(character: ICharacter): Promise<ICharacter> {
     return await this.create(character);
   },
 };
 
-export type Character = InferSchemaType<typeof charactersSchema>;
+export type ICharacter = InferSchemaType<typeof charactersSchema>;
 
-export interface CharactersStatics extends Model<Character> {
+export interface CharactersStatics extends Model<ICharacter> {
   // Problem with the :Promise<> of the functions
   list(): any;
   get(id: Number): any;
-  create(character: Character): any;
+  create(character: ICharacter): any;
 }

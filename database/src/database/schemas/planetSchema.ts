@@ -59,23 +59,23 @@ export const planetSchema: Schema = new Schema({
 });
 
 planetSchema.statics = {
-  async list(): Promise<Planet[]> {
+  async list(): Promise<IPlanet[]> {
     return await this.find().populate("films", ["_id", "title"]);
   },
-  async get(id: Number): Promise<Planet | null> {
+  async get(id: Number): Promise<IPlanet | null> {
     const characterId = id.toString();
     return await this.findById(characterId).populate("films", ["_id", "title"]);
   },
-  async create(planet: Planet): Promise<Planet> {
+  async create(planet: IPlanet): Promise<IPlanet> {
     return await this.create(planet);
   },
 };
 
-export type Planet = InferSchemaType<typeof planetSchema>;
+export type IPlanet = InferSchemaType<typeof planetSchema>;
 
-export interface PlanetStatics extends Model<Planet> {
+export interface PlanetStatics extends Model<IPlanet> {
   // Problem with the :Promise<> of the functions
   list(): any;
   get(id: Number): any;
-  create(planet: Planet): any;
+  create(planet: IPlanet): any;
 }

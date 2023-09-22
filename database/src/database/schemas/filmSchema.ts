@@ -48,27 +48,27 @@ export const filmSchema: Schema = new Schema({
 });
 
 filmSchema.statics = {
-  async list(): Promise<Film[]> {
+  async list(): Promise<IFilm[]> {
     return await this.find()
       .populate("characters", ["_id", "name"])
       .populate("planets", ["_id", "name"]);
   },
-  async get(id: Number): Promise<Film | null> {
+  async get(id: Number): Promise<IFilm | null> {
     const characterId = id.toString();
     return await this.findById(characterId)
       .populate("characters", ["_id", "name"])
       .populate("planets", ["_id", "name"]);
   },
-  async create(film: Film): Promise<Film> {
+  async create(film: IFilm): Promise<IFilm> {
     return await this.create(film);
   },
 };
 
-export type Film = InferSchemaType<typeof filmSchema>;
+export type IFilm = InferSchemaType<typeof filmSchema>;
 
-export interface FilmsStatics extends Model<Film> {
+export interface FilmsStatics extends Model<IFilm> {
   // Problem with the :Promise<> of the functions
   list(): any;
   get(id: Number): any;
-  create(film: Film): any;
+  create(film: IFilm): any;
 }
