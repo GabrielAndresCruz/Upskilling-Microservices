@@ -30,4 +30,4 @@ mongoose
 //   gender: "male",
 // }).then((res) => console.log(res));
 
-models.Character.get(301).then((res) => console.log(res));
+// models.Character.get(301).then((res) => console.log(res));

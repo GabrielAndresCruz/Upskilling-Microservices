@@ -17,42 +17,42 @@ export const planetSchema: Schema = new Schema({
   },
   rotation_period: {
     type: String,
-    required: true,
+    required: false,
   },
   orbital_period: {
     type: String,
-    required: true,
+    required: false,
   },
   diameter: {
     type: String,
-    required: true,
+    required: false,
   },
   climate: {
     type: String,
-    required: true,
+    required: false,
   },
   gravity: {
     type: String,
-    required: true,
+    required: false,
   },
   terrain: {
     type: String,
-    required: true,
+    required: false,
   },
   surface_water: {
     type: String,
-    required: true,
+    required: false,
   },
   residents: [
     {
       type: String,
-      required: true,
+      required: false,
     },
   ],
   films: [
     {
       type: String,
-      required: true,
+      required: false,
       ref: "Film",
     },
   ],
@@ -66,7 +66,7 @@ planetSchema.statics = {
     const characterId = id.toString();
     return await this.findById(characterId).populate("films", ["_id", "title"]);
   },
-  async create(planet: IPlanet): Promise<IPlanet> {
+  async insert(planet: IPlanet): Promise<IPlanet> {
     return await this.create(planet);
   },
 };
@@ -77,5 +77,5 @@ export interface PlanetStatics extends Model<IPlanet> {
   // Problem with the :Promise<> of the functions
   list(): any;
   get(id: Number): any;
-  create(planet: IPlanet): any;
+  insert(planet: IPlanet): any;
 }

@@ -17,7 +17,7 @@ export const filmSchema: Schema = new Schema({
   },
   opening_crawl: {
     type: String,
-    required: true,
+    required: false,
   },
   director: {
     type: String,
@@ -34,14 +34,14 @@ export const filmSchema: Schema = new Schema({
   characters: [
     {
       type: String,
-      required: true,
+      required: false,
       ref: "Character",
     },
   ],
   planets: [
     {
       type: String,
-      required: true,
+      required: false,
       ref: "Planet",
     },
   ],
@@ -59,7 +59,7 @@ filmSchema.statics = {
       .populate("characters", ["_id", "name"])
       .populate("planets", ["_id", "name"]);
   },
-  async create(film: IFilm): Promise<IFilm> {
+  async insert(film: IFilm): Promise<IFilm> {
     return await this.create(film);
   },
 };
@@ -70,5 +70,5 @@ export interface FilmsStatics extends Model<IFilm> {
   // Problem with the :Promise<> of the functions
   list(): any;
   get(id: Number): any;
-  create(film: IFilm): any;
+  insert(film: IFilm): any;
 }
