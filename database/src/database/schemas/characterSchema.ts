@@ -9,7 +9,7 @@ import mongoose, {
 export const charactersSchema: Schema = new Schema({
   _id: {
     type: String,
-    required: true,
+    required: false,
   },
   name: {
     type: String,
@@ -46,7 +46,7 @@ export const charactersSchema: Schema = new Schema({
   },
   homeworld: {
     type: String,
-    required: true,
+    required: false,
     ref: "Planet",
   },
   films: [
@@ -70,7 +70,7 @@ charactersSchema.statics = {
       .populate("homeworld", ["_id", "name"])
       .populate("films", ["_id", "title"]);
   },
-  async create(character: ICharacter): Promise<ICharacter> {
+  async insert(character: ICharacter): Promise<ICharacter> {
     return await this.create(character);
   },
 };
@@ -81,5 +81,5 @@ export interface CharactersStatics extends Model<ICharacter> {
   // Problem with the :Promise<> of the functions
   list(): any;
   get(id: Number): any;
-  create(character: ICharacter): any;
+  insert(character: ICharacter): any;
 }
