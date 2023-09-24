@@ -1,9 +1,10 @@
 import express, { Request, Response } from "express";
 import models from "../database/index";
+import validateModel from "../middlewares/validateModel";
 
 const router = express.Router();
 
-router.get("/:model", async (req: Request, res: Response) => {
+router.get("/:model", validateModel, async (req: Request, res: Response) => {
   try {
     const { model } = req.params;
     const modelName = model.charAt(0).toUpperCase() + model.slice(1);
@@ -15,19 +16,23 @@ router.get("/:model", async (req: Request, res: Response) => {
   }
 });
 
-router.get("/:model/:id", async (req: Request, res: Response) => {
-  try {
-    const { model, id } = req.params;
-    const modelName = model.charAt(0).toUpperCase() + model.slice(1);
-    const response = await models[modelName].get(id);
-    res.status(200).send(response);
-  } catch (error) {
-    res.status(500).send(error);
-    console.log(error);
+router.get(
+  "/:model/:id",
+  validateModel,
+  async (req: Request, res: Response) => {
+    try {
+      const { model, id } = req.params;
+      const modelName = model.charAt(0).toUpperCase() + model.slice(1);
+      const response = await models[modelName].get(id);
+      res.status(200).send(response);
+    } catch (error) {
+      res.status(500).send(error);
+      console.log(error);
+    }
   }
-});
+);
 
-router.post("/:model", async (req: Request, res: Response) => {
+router.post("/:model", validateModel, async (req: Request, res: Response) => {
   try {
     const { model } = req.params;
     const body = req.body;

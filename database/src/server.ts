@@ -4,8 +4,6 @@ import router from "./routes";
 
 const app: Express = express();
 
-const PORT = 8004;
-
 app.use(morgan("dev"));
 app.use(express.json());
 
