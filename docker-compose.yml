@@ -4,6 +4,7 @@ services:
     build: 
       context: ./gateway
     container_name: gateway
+    restart: always
     ports: 
       - '8000:8000'
     networks:
@@ -12,6 +13,7 @@ services:
     build: 
       context: ./characters
     container_name: characters
+    restart: always
     ports: 
       - '8001:8001'
     networks:
@@ -20,6 +22,7 @@ services:
     build: 
       context: ./planets
     container_name: planets
+    restart: always
     ports: 
       - '8002:8002'
     networks:
@@ -28,8 +31,18 @@ services:
     build: 
       context: ./films
     container_name: films
+    restart: always
     ports: 
       - '8003:8003'
+    networks:
+      - starwars
+  database:
+    build: 
+      context: ./database
+    container_name: database
+    restart: always
+    ports: 
+      - '8004:8004'
     networks:
       - starwars
 networks:
