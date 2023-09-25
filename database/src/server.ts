@@ -7,6 +7,6 @@ const app: Express = express();
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.use(router);
+app.use("/", router);
 
 export default app;
