@@ -1,5 +1,6 @@
-import planets from "./planets.json";
+import axios from "axios";
 
 export async function listPlanets() {
-  // return planets;
+  const planets = await axios.get("http://database:8004/planet");
+  return planets.data;
 }

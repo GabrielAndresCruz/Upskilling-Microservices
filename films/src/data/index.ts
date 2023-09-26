@@ -1,5 +1,6 @@
-import films from "./films.json";
+import axios from "axios";
 
 export async function listFilms() {
-  return films;
+  const films = await axios.get("http://database:8004/film");
+  return films.data;
 }
