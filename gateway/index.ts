@@ -9,14 +9,6 @@ const app: Express = express();
 app.use(morgan("dev"));
 
 app.use(
-  "/",
-  createProxyMiddleware({
-    target: "http://database:8004",
-    changeOrigin: true,
-  })
-);
-
-app.use(
   "/characters",
   createProxyMiddleware({
     target: "http://characters:8001",
