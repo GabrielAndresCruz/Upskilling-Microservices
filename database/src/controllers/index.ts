@@ -1,9 +1,10 @@
+import catchedAsync from "../utils/errors/catchedAsync";
 import createModel from "./createModel";
 import getModelById from "./getModelById";
 import getModels from "./getModels";
 
 export default {
-  getModels: getModels,
-  getModelById: getModelById,
-  createModel: createModel,
+  getModels: catchedAsync(getModels),
+  getModelById: catchedAsync(getModelById),
+  createModel: catchedAsync(createModel),
 };
