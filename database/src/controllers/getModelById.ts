@@ -1,14 +1,15 @@
 import { Request, Response } from "express";
 import models from "../database";
+import { sendResponse } from "../utils/response";
 
 export default async (req: Request, res: Response) => {
-  try {
-    const { model, id } = req.params;
-    const modelName = model.charAt(0).toUpperCase() + model.slice(1);
-    const response = await models[modelName].get(id);
-    res.status(200).send(response);
-  } catch (error) {
-    res.status(500).send(error);
-    console.log(error);
-  }
+  const { model, id } = req.params;
+  const modelName = model.charAt(0).toUpperCase() + model.slice(1);
+  const response = await models[modelName].get(id);
+  sendResponse<any[]>(
+    res,
+    200,
+    response,
+    `${response.name ? response.name : response.title} data`
+  );
 };

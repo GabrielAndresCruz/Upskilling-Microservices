@@ -1,4 +1,4 @@
-import catchedAsync from "../utils/errors/catchedAsync";
+import catchedAsync from "../utils/catchedAsync";
 import createModel from "./createModel";
 import getModelById from "./getModelById";
 import getModels from "./getModels";
