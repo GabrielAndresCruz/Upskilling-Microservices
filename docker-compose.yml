@@ -42,7 +42,7 @@ services:
     container_name: database
     restart: always
     ports: 
-      - ':8004'
+      - '8004:8004'
     networks:
       - starwars
 networks:
