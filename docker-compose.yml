@@ -15,7 +15,7 @@ services:
     container_name: characters
     restart: always
     ports: 
-      - ':8001'
+      - '8001:8001'
     networks:
       - starwars
   planets:
@@ -24,7 +24,7 @@ services:
     container_name: planets
     restart: always
     ports: 
-      - ':8002'
+      - '8002:8002'
     networks:
       - starwars
   films:
@@ -33,7 +33,7 @@ services:
     container_name: films
     restart: always
     ports: 
-      - ':8003'
+      - '8003:8003'
     networks:
       - starwars
   database:
