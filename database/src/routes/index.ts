@@ -1,5 +1,4 @@
-import express, { Request, Response } from "express";
-import models from "../database/index";
+import express from "express";
 import validateModel from "../middlewares/validateModel";
 import controllers from "../controllers/index";
 
