@@ -73,6 +73,9 @@ charactersSchema.statics = {
   async insert(character: ICharacter): Promise<ICharacter> {
     return await this.create(character);
   },
+  async delete(id: Number): Promise<ICharacter> {
+    return await this.findByIdAndDelete(id);
+  },
 };
 
 export type ICharacter = InferSchemaType<typeof charactersSchema>;

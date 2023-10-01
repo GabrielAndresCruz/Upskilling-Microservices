@@ -7,5 +7,5 @@ export async function getOneCharacter(req: Request, res: Response) {
 
   const characters: any = await data.listOneCharacter(id); // When use database, change the :any[] for :`Model_Name`[]
 
-  sendResponse<any[]>(res, 200, characters, "Characters Data");
+  sendResponse<any[]>(res, 200, characters, `${characters.data.name} data`);
 }
