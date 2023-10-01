@@ -11,4 +11,6 @@ router.get("/:id", controllers.getOneCharacter);
 
 router.post("/", middlewares.characterValidation, controllers.createCharacter);
 
+router.delete("/:id", controllers.deleteCharacter);
+
 export default router;

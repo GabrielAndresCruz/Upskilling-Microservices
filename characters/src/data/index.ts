@@ -6,11 +6,17 @@ async function listCharacters() {
 }
 
 async function listOneCharacter(id: string) {
-  const characters = await axios.get(`http://database:8004/character/${id}`);
+  const characters = await axios.get(`http://localhost:8004/character/${id}`);
   return characters.data;
+}
+
+async function deleteCharacter(id: string) {
+  const character = await axios.delete(`http://localhost:8004/character/${id}`);
+  return character.data;
 }
 
 export default {
   listCharacters,
   listOneCharacter,
+  deleteCharacter,
 };
