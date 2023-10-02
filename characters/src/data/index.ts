@@ -10,6 +10,11 @@ async function listOneCharacter(id: string) {
   return characters.data;
 }
 
+async function createCharacter(body: any[]) {
+  const character = await axios.post(`http://localhost:8004/character/`, body);
+  return character.data;
+}
+
 async function deleteCharacter(id: string) {
   const character = await axios.delete(`http://localhost:8004/character/${id}`);
   return character.data;
@@ -26,6 +31,7 @@ async function updateCharacter(id: string, body: any[]) {
 export default {
   listCharacters,
   listOneCharacter,
-  deleteCharacter,
+  createCharacter,
   updateCharacter,
+  deleteCharacter,
 };
