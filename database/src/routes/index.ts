@@ -10,6 +10,8 @@ router.get("/:model/:id", validateModel, controllers.getModelById);
 
 router.post("/:model", validateModel, controllers.createModel);
 
+router.put("/:model/:id", validateModel, controllers.updateModel);
+
 router.delete("/:model/:id", controllers.deleteModel);
 
 export default router;

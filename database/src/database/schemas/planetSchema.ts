@@ -63,11 +63,17 @@ planetSchema.statics = {
     return await this.find().populate("films", ["_id", "title"]);
   },
   async get(id: Number): Promise<IPlanet | null> {
-    const characterId = id.toString();
-    return await this.findById(characterId).populate("films", ["_id", "title"]);
+    const planetId = id.toString();
+    return await this.findById(planetId).populate("films", ["_id", "title"]);
   },
   async insert(planet: IPlanet): Promise<IPlanet> {
     return await this.create(planet);
+  },
+  async delete(id: Number): Promise<IPlanet> {
+    return await this.findByIdAndDelete(id);
+  },
+  async update(id: Number, planet: IPlanet): Promise<IPlanet> {
+    return await this.findByIdAndUpdate(id, planet);
   },
 };
 
@@ -78,4 +84,6 @@ export interface PlanetStatics extends Model<IPlanet> {
   list(): any;
   get(id: Number): any;
   insert(planet: IPlanet): any;
+  delete(planet: IPlanet): any;
+  update(planet: IPlanet): any;
 }

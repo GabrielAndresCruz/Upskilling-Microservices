@@ -54,13 +54,19 @@ filmSchema.statics = {
       .populate("planets", ["_id", "name"]);
   },
   async get(id: Number): Promise<IFilm | null> {
-    const characterId = id.toString();
-    return await this.findById(characterId)
+    const filmId = id.toString();
+    return await this.findById(filmId)
       .populate("characters", ["_id", "name"])
       .populate("planets", ["_id", "name"]);
   },
   async insert(film: IFilm): Promise<IFilm> {
     return await this.create(film);
+  },
+  async delete(id: Number): Promise<IFilm> {
+    return await this.findByIdAndDelete(id);
+  },
+  async update(id: Number, film: IFilm): Promise<IFilm> {
+    return await this.findByIdAndUpdate(id, film);
   },
 };
 
@@ -71,4 +77,6 @@ export interface FilmsStatics extends Model<IFilm> {
   list(): any;
   get(id: Number): any;
   insert(film: IFilm): any;
+  delete(film: IFilm): any;
+  update(film: IFilm): any;
 }
