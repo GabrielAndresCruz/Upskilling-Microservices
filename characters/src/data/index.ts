@@ -15,8 +15,17 @@ async function deleteCharacter(id: string) {
   return character.data;
 }
 
+async function updateCharacter(id: string, body: any[]) {
+  const character = await axios.put(
+    `http://localhost:8004/character/${id}`,
+    body
+  );
+  return character.data;
+}
+
 export default {
   listCharacters,
   listOneCharacter,
   deleteCharacter,
+  updateCharacter,
 };
