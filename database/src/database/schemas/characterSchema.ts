@@ -88,4 +88,6 @@ export interface CharactersStatics extends Model<ICharacter> {
   list(): any;
   get(id: Number): any;
   insert(character: ICharacter): any;
+  delete(character: ICharacter): any;
+  update(character: ICharacter): any;
 }

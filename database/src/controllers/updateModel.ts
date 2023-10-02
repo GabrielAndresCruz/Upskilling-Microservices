@@ -13,7 +13,13 @@ export default async (req: Request, res: Response) => {
     200,
     data,
     `${
-      body.name ? body.name : body.title ? body.title : data.name
+      body.name
+        ? body.name
+        : body.title
+        ? body.title
+        : data.name
+        ? data.name
+        : data.title
     } was updated succesfully`
   );
 };
