@@ -8,7 +8,7 @@ const server: Express = express();
 server.use(morgan("dev"));
 server.use(express.json());
 
-server.use("/films", router);
+server.use(router);
 
 server.use("*", controllers.wrongRoute);
 

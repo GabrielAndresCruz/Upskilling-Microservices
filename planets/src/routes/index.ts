@@ -4,8 +4,12 @@ import middlewares from "../middlewares";
 
 const router = express.Router();
 
-router.get("/", controllers.getPlanets);
+router.get("/planets/", controllers.getPlanets);
 
-router.post("/", middlewares.planetValidation, controllers.createPlanets);
+router.post(
+  "/planets/",
+  middlewares.planetValidation,
+  controllers.createPlanets
+);
 
 export default router;
