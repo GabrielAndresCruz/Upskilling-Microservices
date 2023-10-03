@@ -4,14 +4,18 @@ import middlewares from "../middlewares";
 
 const router = express.Router();
 
-router.get("/", controllers.getCharacters);
+router.get("/characters/", controllers.getCharacters);
 
-router.get("/:id", controllers.getOneCharacter);
+router.get("/characters/:id", controllers.getOneCharacter);
 
-router.post("/", middlewares.characterValidation, controllers.createCharacter);
+router.post(
+  "/characters/",
+  middlewares.characterValidation,
+  controllers.createCharacter
+);
 
-router.put("/:id", controllers.updateCharacter);
+router.put("/characters/:id", controllers.updateCharacter);
 
-router.delete("/:id", controllers.deleteCharacter);
+router.delete("/characters/:id", controllers.deleteCharacter);
 
 export default router;
