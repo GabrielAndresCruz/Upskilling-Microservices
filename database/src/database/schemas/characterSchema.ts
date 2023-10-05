@@ -9,7 +9,7 @@ import mongoose, {
 export const charactersSchema: Schema = new Schema({
   _id: {
     type: String,
-    required: false,
+    required: [true, "Please, enter a ID"],
   },
   name: {
     type: String,
