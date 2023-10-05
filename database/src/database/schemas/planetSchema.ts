@@ -9,7 +9,7 @@ import mongoose, {
 export const planetSchema: Schema = new Schema({
   _id: {
     type: String,
-    required: true,
+    required: [true, "Please, enter a ID"],
   },
   name: {
     type: String,

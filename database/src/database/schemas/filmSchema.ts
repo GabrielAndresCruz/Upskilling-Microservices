@@ -9,7 +9,7 @@ import mongoose, {
 export const filmSchema: Schema = new Schema({
   _id: {
     type: String,
-    required: true,
+    required: [true, "Please, enter a ID"],
   },
   title: {
     type: String,

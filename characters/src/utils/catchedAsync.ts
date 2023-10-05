@@ -8,7 +8,8 @@ const catchedAsync = (
       res.status(500).send({
         success: false,
         message: "Internal Server Error",
-        error: err.message,
+        error: err.response.data.error,
+        // error: err.message,
       });
     });
   };
