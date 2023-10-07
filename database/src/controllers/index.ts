@@ -4,6 +4,7 @@ import deleteModel from "./deleteModel";
 import getModelById from "./getModelById";
 import getModels from "./getModels";
 import updateModel from "./updateModel";
+import { wrongRoute } from "./wrongRoute";
 
 export default {
   getModels: catchedAsync(getModels),
@@ -11,4 +12,5 @@ export default {
   createModel: catchedAsync(createModel),
   updateModel: catchedAsync(updateModel),
   deleteModel: catchedAsync(deleteModel),
+  wrongRoute: catchedAsync(wrongRoute),
 };
