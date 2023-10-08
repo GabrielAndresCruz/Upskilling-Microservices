@@ -1,10 +1,4 @@
-import mongoose, {
-  InferSchemaType,
-  Model,
-  Schema,
-  Types,
-  model,
-} from "mongoose";
+import { InferSchemaType, Model, Schema } from "mongoose";
 
 export const filmSchema: Schema = new Schema({
   _id: {
@@ -13,7 +7,7 @@ export const filmSchema: Schema = new Schema({
   },
   title: {
     type: String,
-    required: true,
+    required: [true, "Please, enter a title"],
   },
   opening_crawl: {
     type: String,
@@ -21,15 +15,15 @@ export const filmSchema: Schema = new Schema({
   },
   director: {
     type: String,
-    required: true,
+    required: [true, "Please, enter a director"],
   },
   producer: {
     type: String,
-    required: true,
+    required: [true, "Please, enter a producer"],
   },
   release_date: {
     type: String,
-    required: true,
+    required: [true, "Please, enter a release date"],
   },
   characters: [
     {

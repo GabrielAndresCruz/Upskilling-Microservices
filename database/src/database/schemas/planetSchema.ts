@@ -1,10 +1,4 @@
-import mongoose, {
-  InferSchemaType,
-  Model,
-  Schema,
-  Types,
-  model,
-} from "mongoose";
+import { InferSchemaType, Model, Schema } from "mongoose";
 
 export const planetSchema: Schema = new Schema({
   _id: {
@@ -13,7 +7,7 @@ export const planetSchema: Schema = new Schema({
   },
   name: {
     type: String,
-    required: true,
+    required: [true, "Please, enter a name"],
   },
   rotation_period: {
     type: String,

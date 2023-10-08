@@ -1,10 +1,4 @@
-import mongoose, {
-  InferSchemaType,
-  Model,
-  Schema,
-  Types,
-  model,
-} from "mongoose";
+import { InferSchemaType, Model, Schema } from "mongoose";
 
 export const charactersSchema: Schema = new Schema({
   _id: {
@@ -13,36 +7,36 @@ export const charactersSchema: Schema = new Schema({
   },
   name: {
     type: String,
-    required: true,
+    required: [true, "Please enter a name."],
   },
   height: {
     type: String,
-    required: true,
+    required: [true, "Please enter a height."],
   },
   mass: {
     type: String,
-    required: true,
+    required: [true, "Please enter a mass."],
   },
   hair_color: {
     type: String,
-    required: true,
+    required: [true, "Please enter a hair color."],
   },
   skin_color: {
     type: String,
-    required: true,
+    required: [true, "Please enter a skin color."],
   },
   eye_color: {
     type: String,
-    required: true,
+    required: [true, "Please enter an eye color."],
   },
   birth_year: {
     type: String,
-    required: true,
+    required: [true, "Please enter a birth year."],
   },
   gender: {
     type: String,
     enum: ["male", "female", "hermaphrodite", "none", "n/a"],
-    required: true,
+    required: [true, "Please select a gender."],
   },
   homeworld: {
     type: String,
