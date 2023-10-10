@@ -21,13 +21,10 @@ Welcome to the Star Wars Microservices REST API, a collection of microservices t
 
 - `dev`: Run the server.
 
-## Deployment
+## Docker Scripts
 
-The Star Wars Microservices REST API is deployed and accessible on Google Cloud. You can interact with the API by making requests to the following base URL:
-
-- Base URL: [http://34.125.118.123:8000](http://34.125.118.123:8000)
-
-Please note that you do not need to set up or run the application locally. Simply use the provided base URL to access the API and explore the Star Wars universe.
+- `docker-compose build`: Build images.
+- `docker-compose up`: Run container with images.
 
 ## API endpoints
 
