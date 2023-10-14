@@ -75,9 +75,9 @@ export type IPlanet = InferSchemaType<typeof planetSchema>;
 
 export interface PlanetStatics extends Model<IPlanet> {
   // Problem with the :Promise<> of the functions
-  list(): any;
-  get(id: Number): any;
-  insert(planet: IPlanet): any;
-  delete(planet: IPlanet): any;
-  update(planet: IPlanet): any;
+  list(): IPlanet;
+  get(id: Number): IPlanet;
+  insert(planet: IPlanet): IPlanet;
+  delete(planet: IPlanet): IPlanet;
+  update(planet: IPlanet): IPlanet;
 }

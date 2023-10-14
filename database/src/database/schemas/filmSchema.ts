@@ -68,9 +68,9 @@ export type IFilm = InferSchemaType<typeof filmSchema>;
 
 export interface FilmsStatics extends Model<IFilm> {
   // Problem with the :Promise<> of the functions
-  list(): any;
-  get(id: Number): any;
-  insert(film: IFilm): any;
-  delete(film: IFilm): any;
-  update(film: IFilm): any;
+  list(): IFilm;
+  get(id: Number): IFilm;
+  insert(film: IFilm): IFilm;
+  delete(film: IFilm): IFilm;
+  update(film: IFilm): IFilm;
 }

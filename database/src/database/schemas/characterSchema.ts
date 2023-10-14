@@ -79,9 +79,9 @@ export type ICharacter = InferSchemaType<typeof charactersSchema>;
 
 export interface CharactersStatics extends Model<ICharacter> {
   // Problem with the :Promise<> of the functions
-  list(): any;
-  get(id: Number): any;
-  insert(character: ICharacter): any;
-  delete(character: ICharacter): any;
-  update(character: ICharacter): any;
+  list(): ICharacter;
+  get(id: Number): ICharacter;
+  insert(character: ICharacter): ICharacter;
+  delete(character: ICharacter): ICharacter;
+  update(character: ICharacter): ICharacter;
 }
